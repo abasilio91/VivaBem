@@ -32,7 +32,6 @@ public class Validador {
             dig_real = cpf.charAt(10);
         }
 
-
         for (char letra : cpf_substring.toCharArray()) {
             soma += (letra - '0') * multiplicador;
             multiplicador --;
@@ -40,6 +39,6 @@ public class Validador {
         resto = soma % 11;
 
         dig = (resto < 2) ? 0 : 11 - resto;
-        return dig == (dig_real -'0');
+        return dig == (dig_real - '0');
     }
 }
