@@ -1,4 +1,4 @@
-package vivabem.demo.src.main.java.br.com.vivabem;
+package br.com.vivabem;
 
 public class Pessoa {
     private String nome;
@@ -28,7 +28,7 @@ public class Pessoa {
             throw new Exception("CPF inválido. Era esperado 11 digitos.");
         }
         
-        if (cpf.charAt(9) != _primeiroDigito(cpf) || cpf.charAt(10) != _segundoDigito(cpf)) {
+        if (cpf.charAt(9) != primeiroDigito(cpf) || cpf.charAt(10) != segundoDigito(cpf)) {
             throw new Exception("CPF inválido. Verifique os digitos.");
         }
         return true;
