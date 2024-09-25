@@ -5,54 +5,50 @@ public class Pessoa {
     private String cpf;
     private String dt_nascimento;
 
-    public Pessoa(String nome, String cpf, String dt_nascimento) throws Exception{
-        setNome(nome);
-        setCPF(cpf);
-        setDataNascimento(dt_nascimento);
-    }
-
-    public void setNome(String nome) {
+    public Pessoa(String nome, String cpf, String dt_nascimento) {
         this.nome = nome;
-    }
-    public void setDataNascimento(String dt_nascimento) {
+        this.cpf = cpf;
         this.dt_nascimento = dt_nascimento;
     }
-    public void setCPF(String cpf) throws Exception {
-        if (validaCPF(cpf)) {
-            this.cpf = cpf;
-        }
-    }
 
-    public boolean validaCPF(String cpf) throws Exception {        
+    public static boolean validaCPF(String cpf) throws Exception {
         if (cpf.length() != 11) {
-            throw new Exception("CPF inválido. Era esperado 11 digitos.");
+            throw new IllegalArgumentException("CPF inválido. Era esperado 11 digitos.");
         }
-        
-        if (cpf.charAt(9) != primeiroDigito(cpf) || cpf.charAt(10) != segundoDigito(cpf)) {
-            throw new Exception("CPF inválido. Verifique os digitos.");
+        if (!verificaDigitos(cpf, 1) || !   verificaDigitos(cpf, 2)) {
+            throw new IllegalArgumentException("CPF inválido. Verifique os digitos.");
         }
         return true;
     }
 
-    public String getNome() {
-        return this.nome;
-    }
+    private static boolean verificaDigitos(String cpf, int digito) {
+        int resto;
+        int dig;
+        int dig_real = 0;
+        int soma = 0;
+        int multiplicador = 0;
+        String cpf_substring = "";
+        
+        if (digito == 1) {
+            multiplicador = 10;
+            cpf_substring = cpf.substring(0,9);
+            dig_real = cpf.charAt(9);
+        } 
+        
+        if (digito == 2) {       
+            multiplicador = 11;
+            cpf_substring = cpf.substring(0,10);
+            dig_real = cpf.charAt(10);
+        }
 
-    public String getCPF() {
-        return this.cpf;
-    }
 
-    public String getDataNascimento() {
-        return this.dt_nascimento;
-    }
+        for (char letra : cpf_substring.toCharArray()) {
+            soma += (letra - '0') * multiplicador;
+            multiplicador --;
+        }
+        resto = soma % 11;
 
-    private static char primeiroDigito(String cpf) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method '_primeiroDigito'");
-    }
-
-    private static char segundoDigito(String cpf) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method '_segundoDigito'");
+        dig = (resto < 2) ? 0 : 11 - resto;
+        return dig == (dig_real -'0');
     }
 }
