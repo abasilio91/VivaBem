@@ -46,12 +46,12 @@ public class Pessoa {
         return this.dt_nascimento;
     }
 
-    public static char _primeiroDigito(String string) {
+    private static char primeiroDigito(String cpf) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method '_primeiroDigito'");
     }
 
-    public static char _segundoDigito(String string) {
+    private static char segundoDigito(String cpf) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method '_segundoDigito'");
     }
