@@ -2,47 +2,56 @@ package br.com.vivabem;
 
 import java.util.Date;
 
-public class Pessoa {
-    private String nome;
-    private String cpf;
-    private String dt_nascimento;
-
-    public Pessoa(String nome, String cpf, String dt_nascimento) throws Exception {
-        this.nome = nome;
-        this.dt_nascimento = dt_nascimento;
-
-        if (Validador.validaCPF(cpf)){
-            this.cpf = cpf;
-        }
-    }
-}
-
 public class Funcionario extends Pessoa {
     private String cargo;
     private double salario;
     private Date data_admissao;
+    private Date data_demisssao;
     
     public Funcionario(
             String nome, 
             String cpf, 
-            String dt_nascimento, 
-            String cargo, 
-            double salario, 
-            Date data_admissao) throws Exception {
+            String dt_nascimento,
+            String cargo,
+            double salario,
+            Date data_admissao
+            ) throws Exception {
                 
         super(nome, cpf, dt_nascimento);
         this.cargo = cargo;
         this.salario = salario;
         this.data_admissao = data_admissao;
     }
-    
-    public class Morador extends Pessoa {
-        private String apartamento;
 
-        public Morador(String nome, String cpf, String dt_nascimento, String apartamento) throws Exception {
-            super(nome, cpf, dt_nascimento);
-            this.apartamento = apartamento;
-        }
-        
+    public String getCargo() {
+        return this.cargo;
+    }
+
+    public double getSalario() {
+        return this.salario;
+    }
+
+    public Date getData_admissao() {
+        return this.data_admissao;
+    }
+
+    public Date getData_demisssao() {
+        return this.data_demisssao;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public void setData_admissao(Date data_admissao) {
+        this.data_admissao = data_admissao;
+    }
+
+    public void setData_demisssao(Date data_demisssao) {
+        this.data_demisssao = data_demisssao;
     }
 }
