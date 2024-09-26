@@ -1,4 +1,4 @@
-package br.com.vivabem;
+package vivabem.demo.src.main.java.br.com.vivabem;
 
 public class Morador extends Pessoa {
     private String apartamento;
