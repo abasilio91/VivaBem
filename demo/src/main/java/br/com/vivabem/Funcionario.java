@@ -1,4 +1,4 @@
-package vivabem.demo.src.main.java.br.com.vivabem;
+package br.com.vivabem;
 
 import java.util.Date;
 
