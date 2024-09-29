@@ -54,4 +54,8 @@ public class Funcionario extends Pessoa {
     public void setData_demisssao(Date data_demisssao) {
         this.data_demisssao = data_demisssao;
     }
+
+    public static int getFuncionarioFromDB(int id) {
+        return 0;
+    }
 }
