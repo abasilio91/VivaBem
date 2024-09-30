@@ -6,8 +6,8 @@ import br.com.vivabem.ConexaoDB;
 public class Funcionario extends Pessoa {
     private String cargo;
     private double salario;
-    private Date data_admissao;
-    private Date data_demisssao;
+    private String data_admissao;
+    private String data_demisssao;
     private StatusFuncionario status;
     private ConexaoDB conexaoDB;
     
@@ -17,14 +17,13 @@ public class Funcionario extends Pessoa {
             String dt_nascimento,
             String cargo,
             double salario,
-            Date data_admissao
+            String data_admissao
             ) throws Exception {
                 
         super(nome, cpf, dt_nascimento);
         this.cargo = cargo;
         this.salario = salario;
         this.data_admissao = data_admissao;
-        this.status = status.ATIVO;
     }
 
     public String getCargo() {
@@ -35,11 +34,11 @@ public class Funcionario extends Pessoa {
         return this.salario;
     }
 
-    public Date getData_admissao() {
+    public String getData_admissao() {
         return this.data_admissao;
     }
 
-    public Date getData_demisssao() {
+    public String getData_demisssao() {
         return this.data_demisssao;
     }
 
@@ -70,9 +69,14 @@ public class Funcionario extends Pessoa {
             prepareStatement.setString(2, this.getCpf());
             prepareStatement.setString(3, this.getCargo());
             prepareStatement.setString(4, this.getDt_nascimento());
-            prepareStatement.setDate(5, this.getData_admissao());
+            prepareStatement.setString(5, this.getData_admissao());
             prepareStatement.setInt(6, this.getSalario());
             prepareStatement.setString(7, this.status.getStatus());
+
+            prepareStatement.execute();
+            prepareStatement.close();
+            
+            conn.close();
         } catch (SQLException e) {
             throw new RunTimeException(e.getMessage());
         }
