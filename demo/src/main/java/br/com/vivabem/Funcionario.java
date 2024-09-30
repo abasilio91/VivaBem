@@ -1,29 +1,32 @@
 package br.com.vivabem;
 
-import java.util.Date;
-import br.com.vivabem.ConexaoDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import br.com.vivabem.Pessoa;
+import br.com.vivabem.StatusFuncionario;
 
 public class Funcionario extends Pessoa {
     private String cargo;
     private double salario;
     private String data_admissao;
     private String data_demisssao;
-    private StatusFuncionario status;
-    private ConexaoDB conexaoDB;
-    
+    private String status = "";
+       
     public Funcionario(
             String nome, 
             String cpf, 
             String dt_nascimento,
             String cargo,
             double salario,
-            String data_admissao
-            ) throws Exception {
+            String data_admissao) throws Exception {
                 
         super(nome, cpf, dt_nascimento);
         this.cargo = cargo;
         this.salario = salario;
         this.data_admissao = data_admissao;
+        this.status = StatusFuncionario.ATIVO.getStatus();
     }
 
     public String getCargo() {
@@ -42,6 +45,10 @@ public class Funcionario extends Pessoa {
         return this.data_demisssao;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
@@ -50,35 +57,37 @@ public class Funcionario extends Pessoa {
         this.salario = salario;
     }
 
-    public void setData_admissao(Date data_admissao) {
+    public void setData_admissao(String data_admissao) {
         this.data_admissao = data_admissao;
     }
 
-    public void setData_demisssao(Date data_demisssao) {
+    public void setData_demisssao(String data_demisssao) {
         this.data_demisssao = data_demisssao;
     }
 
-    public static void createFuncionario(Funcionario funcionario, ConexaoDB conexaoDB) {
+    public static void createFuncionario(Funcionario funcionario) {
+        
         String sql = "INSERT INTO FUNCIONARIOS (NOME, CPF, CARGO, DT_NASCIMENTO, DT_ADMISSAO, SALARIO, STATUS) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        Connection conn = conexaoDB.connect();
-        PreparedStatement prepareStatement = conn.prepareStatement(sql);
+        
+        try (
+            Connection conn = ConexaoDB.connect();
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ) {
+            preparedStatement.setString(1, funcionario.getNome());
+            preparedStatement.setString(2, funcionario.getCpf());
+            preparedStatement.setString(3, funcionario.getCargo());
+            preparedStatement.setString(4, funcionario.getDt_nascimento());
+            preparedStatement.setString(5, funcionario.getData_admissao());
+            preparedStatement.setDouble(6, funcionario.getSalario());
+            preparedStatement.setString(7, funcionario.getStatus());
 
-        try {
-            prepareStatement.setString(1, this.getNome());
-            prepareStatement.setString(2, this.getCpf());
-            prepareStatement.setString(3, this.getCargo());
-            prepareStatement.setString(4, this.getDt_nascimento());
-            prepareStatement.setString(5, this.getData_admissao());
-            prepareStatement.setInt(6, this.getSalario());
-            prepareStatement.setString(7, this.status.getStatus());
-
-            prepareStatement.execute();
-            prepareStatement.close();
+            preparedStatement.execute();
+            preparedStatement.close();
             
             conn.close();
         } catch (SQLException e) {
-            throw new RunTimeException(e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
         
     }

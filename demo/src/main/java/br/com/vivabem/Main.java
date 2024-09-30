@@ -1,5 +1,7 @@
 package br.com.vivabem;
 
+import java.util.Scanner;
+
 public class Main {
 
     private static Scanner teclado = new Scanner(System.in).useDelimiter("\n");
@@ -14,11 +16,11 @@ public class Main {
             5 - Buscar Fucnionário
             6 - Sair
             """);
-    return teclado.nextInt();
+        return teclado.nextInt();
     }
 
-    public void adicionaFuncionario() {
-        System.out.println("Informe o nome do funcionario:");
+    public static void adicionaFuncionario() {
+        System.out.println("Informe o nome do funcionário:");
         var nome = teclado.next();
 
         System.out.println("Informe o CPF do funcionario:");
@@ -28,7 +30,7 @@ public class Main {
         var dt_nascimento = teclado.next();
         
         System.out.println("Informe salario do funcionario:");
-        var salario = teclado.NextDouble();
+        var salario = teclado.nextDouble();
         
         System.out.println("Informe o cargo do funcionario:");
         var cargo = teclado.next();
@@ -36,22 +38,31 @@ public class Main {
         System.out.println("Informe o data de admissao do funcionario:");
         var dt_admissao = teclado.next();
         
-        Funcionario fun = new Funcionario(nome, cpf, dt_nascimento, cargo, salario, data_admissao);
+        try {
+            Funcionario fun = new Funcionario(nome, cpf, dt_nascimento, cargo, salario, dt_admissao);
+
+            Funcionario.createFuncionario(fun);
+
+            System.out.println("Funcionário adicionado com sucesso!");      
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
     }
 
     public static void main(String[] args) {
         var opcao = exibirMenu();
         while (opcao != 6) {
             try {
-                switch (opcao) {
-                    case 1: "listarFuncionarios()"; break;
-                    case 2: "listarMoradores()"; break;
-                    case 3: adicionaFuncionario(); break;
-                    case 4: "adicionaMorador()"; break;
-                    case 5: "buscaFuncionario()"; break;
+                switch(opcao) {
+                    case 1 -> System.out.println("Não implementado 1");
+                    case 2 -> System.out.println("Não implementado 2");
+                    case 3 -> System.out.println("Não implementado 3");
+                    case 4 -> System.out.println("Não implementado 4");
+                    case 5 -> System.out.println("Não implementado 5");
                 }
-            } catch (RegraDeNegocioException e) {
-                System.out.println("Erro: " +e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Erro: " + e.getMessage());
                 System.out.println("Pressione qualquer tecla e de ENTER para voltar ao menu");
                 teclado.next();
             }

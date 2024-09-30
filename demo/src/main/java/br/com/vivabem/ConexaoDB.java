@@ -1,18 +1,14 @@
 package br.com.vivabem;
 
-import java.sql.Conenction;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoDB {
+    
+    private static final String url="jdbc:sqlite:demo/src/main/resources/cadastro.db";
 
-    public Connection connect() {   
-        Connection conexao = null;
-        
-        try {
-           return Drivermanager.getConnection("jdbc:sqlite:demo/src/main/resources/cadastro.db");
-        } catch (SQLException e) {
-            throw new RunTimeException(e);
-        }
+    public static Connection connect() throws SQLException {
+        return DriverManager.getConnection(url);
     }
 }

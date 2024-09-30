@@ -1,14 +1,18 @@
+package br.com.vivabem;
+
 public enum StatusFuncionario {
-    ATIVO("ativo"), DEMITIDO("demitido"), AFASTADO("afastado"), CEDIDO("cedido");
+    ATIVO("ativo"),
+    DEMITIDO("demitido"),
+    AFASTADO("afastado"),
+    CEDIDO("cedido");
 
-    private String statusFuncionario;
+    private final String status;
 
-    public String status(String status) {
-        statusFuncionario = status;
+    StatusFuncionario(String status) {
+        this.status = status;
     }
 
     public String getStatus() {
-        return statusFuncionario;
-
+        return this.status;
     }
 }
