@@ -1,1 +1,1 @@
-.schema
+select * from FUNCIONARIOS

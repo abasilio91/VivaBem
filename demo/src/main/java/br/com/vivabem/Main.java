@@ -43,6 +43,7 @@ public class Main {
             System.out.println("Funcionario criado com sucesso");
 
             Funcionario.createFuncionario(fun);
+            
             System.out.println("Funcionário adicionado com sucesso!");      
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());

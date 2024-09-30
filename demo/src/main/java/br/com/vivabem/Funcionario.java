@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.vivabem.Pessoa;
-import br.com.vivabem.StatusFuncionario;
-
 public class Funcionario extends Pessoa {
     private String cargo;
     private double salario;
@@ -74,6 +71,8 @@ public class Funcionario extends Pessoa {
             Connection conn = ConexaoDB.connect();
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             ) {
+            System.out.println("conexão criada.");
+            
             preparedStatement.setString(1, funcionario.getNome());
             preparedStatement.setString(2, funcionario.getCpf());
             preparedStatement.setString(3, funcionario.getCargo());
