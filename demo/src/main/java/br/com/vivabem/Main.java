@@ -2,6 +2,9 @@ package br.com.vivabem;
 
 import java.util.Scanner;
 
+import br.com.vivabem.modelo.Funcionario;
+import br.com.vivabem.modelo.Morador;
+
 public class Main {
 
     private static Scanner teclado = new Scanner(System.in);
@@ -37,18 +40,34 @@ public class Main {
 
         System.out.println("Informe o data de admissao do funcionário:");
         var dt_admissao = teclado.next();
-        
+
         try {
-            Funcionario fun = new Funcionario(nome, cpf, dt_nascimento, cargo, salario, dt_admissao);
-            System.out.println("Funcionario criado com sucesso");
-
-            Funcionario.createFuncionario(fun);
-            
-            System.out.println("Funcionário adicionado com sucesso!");      
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            Funcionario funcionario = new Funcionario(nome, cpf, dt_nascimento, cargo, salario, dt_admissao);
+            System.out.println("Funcionário adicionado com sucesso!");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+    }
 
+    public static void adicionaMorador() {
+        System.out.println("Informe o nome do morador:");
+        var nome = teclado.next();
+
+        System.out.println("Informe o CPF do morador:");
+        var cpf = teclado.next();
+
+        System.out.println("Informe a data de nascimento do morador:");
+        var dt_nascimento = teclado.next();
+        
+        System.out.println("Informe o apartamento do morador:");
+        var apartamento = teclado.next();
+
+        try {
+            Morador morador = new Morador(nome, cpf, dt_nascimento, apartamento);
+            System.out.println("Morador adicionado com sucesso!");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -60,7 +79,7 @@ public class Main {
                     case 1 ->  System.out.println("Não implementado 1");
                     case 2 ->  System.out.println("Não implementado 2");
                     case 3 ->  adicionaFuncionario();
-                    case 4 ->  System.out.println("Não implementado 4");
+                    case 4 ->  adicionaMorador();
                     case 5 ->  System.out.println("Não implementado 5");
                     default -> System.out.println("Opção inválida");
                 }

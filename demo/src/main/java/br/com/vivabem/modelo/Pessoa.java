@@ -1,16 +1,22 @@
-package br.com.vivabem;
+package br.com.vivabem.modelo;
+
+import br.com.vivabem.Validador;
 
 public class Pessoa {
     private String nome;
     private String cpf;
     private String dt_nascimento;
 
-    public Pessoa(String nome, String cpf, String dt_nascimento) throws Exception {
+    public Pessoa(String nome, String cpf, String dt_nascimento) {
         this.nome = nome;
         this.dt_nascimento = dt_nascimento;
 
-        if (Validador.validaCPF(cpf)){
-            this.cpf = cpf;
+        try {
+            if (Validador.validaCPF(cpf)){
+                this.cpf = cpf;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
