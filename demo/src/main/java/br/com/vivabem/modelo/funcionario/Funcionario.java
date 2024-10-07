@@ -1,6 +1,6 @@
-package br.com.vivabem.modelo;
+package br.com.vivabem.modelo.funcionario;
 
-import br.com.vivabem.StatusFuncionario;
+import br.com.vivabem.modelo.Pessoa;
 
 public class Funcionario extends Pessoa {
     private String cargo;

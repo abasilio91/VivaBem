@@ -1,4 +1,4 @@
-package br.com.vivabem;
+package br.com.vivabem.modelo.funcionario;
 
 public enum StatusFuncionario {
     ATIVO("ativo"),
