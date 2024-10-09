@@ -2,8 +2,8 @@ package br.com.vivabem;
 
 import java.util.Scanner;
 
-import static br.com.vivabem.Service.funcionarioService.adicionaFuncionario;
-import static br.com.vivabem.Service.moradorService.adicionaMorador;
+import br.com.vivabem.Service.funcionarioService;
+import br.com.vivabem.Service.moradorService;
 
 public class Main {
 
@@ -11,7 +11,10 @@ public class Main {
     
     public static int exibirMenu() {
         System.out.println("""
-            VivaBem Adminstrador de Condomínio - ESCOLHA UMA OPÇÃO:
+            
+        VivaBem Adminstrador de Condomínio
+            
+            ESCOLHA UMA OPÇÃO:
             1 - Listar Funcionários
             2 - Listar Moradores
             3 - Adicionar Funcionario
@@ -27,10 +30,10 @@ public class Main {
         while (opcao != 6) {
             try {
                 switch(opcao) {
-                    case 1 ->  System.out.println("Não implementado 1");
-                    case 2 ->  System.out.println("Não implementado 2");
-                    case 3 ->  adicionaFuncionario();
-                    case 4 ->  adicionaMorador();
+                    case 1 ->  funcionarioService.listarFuncionarios();
+                    case 2 ->  moradorService.listarMoradores();
+                    case 3 ->  funcionarioService.adicionarFuncionario();
+                    case 4 ->  moradorService.adicionarMorador();
                     case 5 ->  System.out.println("Não implementado 5");
                     default -> System.out.println("Opção inválida");
                 }
