@@ -1,8 +1,10 @@
-package br.com.vivabem.modelo.funcionario;
+package br.com.vivabem.Service;
 
 import java.util.Scanner;
 
-public class funcionarioDto {
+import br.com.vivabem.modelo.Funcionario;
+
+public class funcionarioService {
     
     private static Scanner teclado = new Scanner(System.in);
 

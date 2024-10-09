@@ -2,8 +2,8 @@ package br.com.vivabem;
 
 import java.util.Scanner;
 
-import static br.com.vivabem.modelo.funcionario.funcionarioDto.adicionaFuncionario;
-import static br.com.vivabem.modelo.morador.moradorDto.adicionaMorador;
+import static br.com.vivabem.Service.funcionarioService.adicionaFuncionario;
+import static br.com.vivabem.Service.moradorService.adicionaMorador;
 
 public class Main {
 
@@ -22,10 +22,8 @@ public class Main {
         return teclado.nextInt();
     }
 
-
     public static void main(String[] args) {
         var opcao = exibirMenu();
-        // System.out.println("Opção selecionada: " + opcao);
         while (opcao != 6) {
             try {
                 switch(opcao) {

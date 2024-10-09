@@ -1,8 +1,10 @@
-package br.com.vivabem.modelo.morador;
+package br.com.vivabem.Service;
 
 import java.util.Scanner;
 
-public class moradorDto {
+import br.com.vivabem.modelo.Morador;
+
+public class moradorService {
 
     private static Scanner teclado = new Scanner(System.in);
 

@@ -1,6 +1,4 @@
-package br.com.vivabem.modelo.morador;
-
-import br.com.vivabem.modelo.Pessoa;
+package br.com.vivabem.modelo;
 
 public class Morador extends Pessoa {
     private String apartamento;
