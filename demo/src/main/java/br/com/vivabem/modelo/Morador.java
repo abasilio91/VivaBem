@@ -1,10 +1,17 @@
 package br.com.vivabem.modelo;
 
-public class Morador extends Pessoa {
-    private String apartamento;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-    public Morador(String nome, String cpf, String dt_nascimento, String apartamento) throws Exception {
-        super(nome, cpf, dt_nascimento);
+@Entity
+public class Morador extends Pessoa {
+
+    @Id
+    public Integer id;
+    public String apartamento;
+
+    public Morador(String nome, String cpf, String apartamento) {
+        super(nome, cpf);
         this.apartamento = apartamento;
     }
 

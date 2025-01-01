@@ -20,12 +20,14 @@
             <version>5.11.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.46.1.0</version>
-        </dependency>    
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.3.232</version>
+            <scope>test</scope>
+        </dependency>
+ 
 
         <dependency>   
             <groupId>org.mockito</groupId>
@@ -40,11 +42,12 @@
             <version>20240303</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-entitymanager -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>6.0.0.Alpha7</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.6.4.Final</version>
+            <type>pom</type>
         </dependency>
    </dependencies>
 
