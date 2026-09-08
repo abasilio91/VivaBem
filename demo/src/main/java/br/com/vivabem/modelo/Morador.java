@@ -1,25 +1,25 @@
 package br.com.vivabem.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-@Entity
 public class Morador extends Pessoa {
 
-    @Id
     public Integer id;
-    public String apartamento;
+    public Integer apartamento;
 
-    public Morador(String nome, String cpf, String apartamento) {
+    public Morador(Integer id, String nome, String cpf, Integer apartamento) {
         super(nome, cpf);
+        this.id = id;
         this.apartamento = apartamento;
     }
 
-    public String getApartamento() {
+    public Integer getApartamento() {
         return this.apartamento;
     }
 
-    public void setApartamento(String apartamento) {
+    public void setApartamento(Integer apartamento) {
         this.apartamento = apartamento;
+    }
+
+    public Integer getId() {
+        return this.id;
     }
 }

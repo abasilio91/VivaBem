@@ -3,6 +3,7 @@ package br.com.vivabem.menu;
 import java.util.Scanner;
 
 import br.com.vivabem.modelo.NaoImplementado;
+import br.com.vivabem.DTOs.moradorDTO;
 
 public class morador {
 
@@ -18,6 +19,8 @@ public class morador {
             2 - Listar moradores
             3 - Editar morador
             4 - Excluir morador
+            5 - Histórico do morador
+            6 - Consultar morador
             0 - Voltar ao menu principal
         -----------------------------------------------------------
             """);
@@ -30,16 +33,22 @@ public static void Run() {
         try {
             switch(opcao) {
                 case 1:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    moradorDTO.cadastrarMorador();
                     break;
                 case 2:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    moradorDTO.listarMoradores();
                     break;
                 case 3:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    moradorDTO.editarMorador();
                     break;
                 case 4:
+                    moradorDTO.removerMorador();
+                    break;
+                case 5:
                     NaoImplementado.exibirMensagemNaoImplementado();
+                    break;
+                case 6:
+                    moradorDTO.consultarMorador();
                     break;
                 case 0:
                     Inicial.Run();
