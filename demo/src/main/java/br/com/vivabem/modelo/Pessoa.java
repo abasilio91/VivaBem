@@ -1,5 +1,8 @@
 package br.com.vivabem.modelo;
 
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Pessoa {
 
     protected String nome;

@@ -2,6 +2,7 @@ package br.com.vivabem.menu;
 
 import java.util.Scanner;
 
+import br.com.vivabem.DTOs.funcionarioDTO;
 import br.com.vivabem.modelo.NaoImplementado;
 
 public class funcionario {
@@ -16,7 +17,7 @@ public class funcionario {
             1 - Cadastrar funcionário
             2 - Listar funcionários
             3 - Editar funcionário
-            4 - Excluir funcionário
+            4 - Remover funcionário
             0 - Voltar ao menu principal
         -----------------------------------------------------------
             """);
@@ -29,16 +30,16 @@ public class funcionario {
         try {
             switch(opcao) {
                 case 1:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    funcionarioDTO.cadastrarFuncionario();
                     break;
                 case 2:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    funcionarioDTO.listarFuncionarios();
                     break;
                 case 3:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    funcionarioDTO.editarFuncionario();
                     break;
                 case 4:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    funcionarioDTO.removerFuncionario();
                     break;
                 case 0:
                     Inicial.Run();
