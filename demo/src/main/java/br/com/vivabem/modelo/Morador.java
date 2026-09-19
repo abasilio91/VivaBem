@@ -2,8 +2,8 @@ package br.com.vivabem.modelo;
 
 public class Morador extends Pessoa {
 
-    public Integer id;
-    public Integer apartamento;
+    private Integer id;
+    private Integer apartamento;
 
     public Morador(Integer id, String nome, String cpf, Integer apartamento) {
         super(nome, cpf);

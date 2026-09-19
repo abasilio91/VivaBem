@@ -7,8 +7,8 @@ public class Funcionario extends Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
-    public String cargo;
+    private Integer id;
+    private String cargo;
         
     public Funcionario(String nome, String cpf, String cargo) {
         super(nome, cpf);

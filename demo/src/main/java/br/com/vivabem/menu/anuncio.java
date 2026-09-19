@@ -2,6 +2,7 @@ package br.com.vivabem.menu;
 
 import java.util.Scanner;
 
+import br.com.vivabem.DTOs.anuncioDTO;
 import br.com.vivabem.modelo.NaoImplementado;
 
 public class anuncio {
@@ -17,7 +18,7 @@ public class anuncio {
             1 - Cadastrar anúncio
             2 - Listar anúncios
             3 - Editar anúncio
-            4 - Excluir anúncio
+            4 - Consultar anúncio
             0 - Voltar ao menu principal
         -----------------------------------------------------------
             """);
@@ -31,16 +32,16 @@ public class anuncio {
 
             switch (opcao) {
                 case 1:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    anuncioDTO.cadastrarAnuncio();
                     break;
                 case 2:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    anuncioDTO.listarAnuncios();
                     break;
                 case 3:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    anuncioDTO.editarAnuncio();
                     break;
                 case 4:
-                    NaoImplementado.exibirMensagemNaoImplementado();
+                    anuncioDTO.consultarAnuncio();
                     break;
                 case 0:
                     Inicial.Run();
